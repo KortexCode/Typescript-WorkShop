@@ -1,44 +1,29 @@
-
-(async ()=> {
-  const myCart = [];
-  const products = [];
-  const limit = 2;
-
-  async function getProducts() {
-    const rta = await fetch('http://api.escuelajs.co/api/v1/products', {
-      method: 'GET'
-    });
-    const data = await rta.json();
-    products.concat(data);
-    console.log("productos", products)
+const withoutEnd = () => {
+  while (true) {
+    console.log('nunca para de aprender');
   }
+}
 
-  function getTotal() {
-    let total = 0;
-    for (let i = 0; i < products.length; i++) {
-      /* total += products[i]; */
-      total = 4;
+function parseStr(input:string[]): string;
+function parseStr(input:string): string[];
+function parseStr(input:number): number;
 
-    }
-    return total;
+function parseStr(input: unknown): unknown{
+  if(Array.isArray(input)){
+    return input.join("");
   }
-
-  function addProduct(index) {
-    if (getTotal() <= limit) {
-      myCart.push(products[index]);
-    }
+  if(typeof(input) === "string"){
+    return input.split("");
   }
+  return input;
+}
 
-  await getProducts();
-  addProduct(1);
-  addProduct(2);
-  const total = getTotal();
-  console.log(total);
-  const person = {
-    name: 'Nicolas',
-    lastName: 'Molina'
-  }
+const first = parseStr('EDGAR');
+const second = parseStr(2);
+const third = parseStr(second);
+first.push("chikorita");
+console.log(first); //Sin validar tipos ahora se puede usar un
+//método y TS entenderá que firts es un array
+console.log(second*2);
+console.log(third);
 
-  const rta = `${person } ${limit}`;
-  console.log(rta);
-});
