@@ -1,9 +1,4 @@
-const withoutEnd = () => {
-  while (true) {
-    console.log('nunca para de aprender');
-  }
-}
-
+//Sobre carga de parámetros en funciones
 function parseStr(input:string[]): string;
 function parseStr(input:string): string[];
 function parseStr(input:number): number;
@@ -21,9 +16,5 @@ function parseStr(input: unknown): unknown{
 const first = parseStr('EDGAR');
 const second = parseStr(2);
 const third = parseStr(second);
-first.push("chikorita");
-console.log(first); //Sin validar tipos ahora se puede usar un
-//método y TS entenderá que firts es un array
-console.log(second*2);
-console.log(third);
+
 
