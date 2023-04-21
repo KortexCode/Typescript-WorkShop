@@ -4,17 +4,24 @@ import { Product } from "./product.model";
 
 class ProductMemoryService {
   private products: Product[];
+  private static instance: ProductMemoryService | null = null;
 
   private constructor(products:Product[]){
     this.products = products;
+
   }
 
-  createInstance(list:Product[]){
-    let productService :ProductMemoryService;
-    return productService = new ProductMemoryService(list);
+  static createInstance(list:Product[]){
+    if(this.instance === null)
+      return this.instance = new ProductMemoryService(list);
+
+    return this.instance;
   }
 
   //Métodos
+  showList():Product[]{
+    return this.products;
+  }
   //crea productos
   create(data: createProductDto){
     const newProduct =
@@ -64,10 +71,8 @@ class ProductMemoryService {
   }
 }
 
-let productList : Product[] = [];
-
 export {
-  productList,
+  ProductMemoryService,
 }
 
 
