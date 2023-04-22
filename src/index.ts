@@ -18,3 +18,8 @@ const second = parseStr(2);
 const third = parseStr(second);
 
 
+function getValue<T,A>(value:T, value2: A){
+  return value2;
+}
+
+const z = getValue<number, string>(12, "hola")

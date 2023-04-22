@@ -1,5 +1,5 @@
 import { createProductDto, updateProduct } from "../products/product.dto";
-import { Product } from "../products/product.model";
+import { Product } from "./product.model";
 
 export interface ProductService {
   showAll(): Product[] | Promise<Product[]>;

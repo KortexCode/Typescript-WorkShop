@@ -1,5 +1,5 @@
-import { createProductDto, findProductDto, updateProduct } from "./product.dto";
-import { Product } from "./product.model";
+import { createProductDto, findProductDto, updateProduct } from "../products/product.dto";
+import { Product } from "../models/product.model";
 import { ProductService } from "../../appAsync/models/product.service.model";
 import axios from "axios";
 
